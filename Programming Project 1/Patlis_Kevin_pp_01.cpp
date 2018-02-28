@@ -8,6 +8,8 @@
 
 using namespace std;
 
+
+// Declaring functions
 double ValidateResponse();
 double EvalQuarter(double bal, double &endBal, double &totalDeposits, double &totalWithdrawals, double &totalInterest, double rate, int month);
 void Statement(double bal, double totalDeposits, double totalWithdrawals, double totalInterest, double endBal);
@@ -15,34 +17,37 @@ void printStatement(double bal, double totalDeposits, double totalWithdrawals, d
 
 int main()
 {
-    double bal, startingBalance, rate, totalDeposits, totalWithdrawals, totalInterest, endBal;
+    double bal, startingBalance, rate, totalDeposits, totalWithdrawals, totalInterest, endBal; // Initalize all variables to use in calculations
 
 
-    cout << "Enter the starting balance on the account: $";
-    startingBalance = ValidateResponse();
-    bal = startingBalance;
+    cout << "Enter the starting balance on the account: $"; // Output prompt to user to enter data
+    startingBalance = ValidateResponse(); // Call function to validate that response is greater than 0
+    bal = startingBalance; // set the Starting Balance to use later in code
 
     cout << "Enter the annual interest rate on the account (e.g. .04): ";
-    rate = ( ValidateResponse() / 12.00);
+    rate = ( ValidateResponse() / 12.00); // Find monthly interest rate
 
-    endBal = startingBalance;
+    endBal = startingBalance; // Declare endBal to use in function later in code
+    
+    // For loop to start month count
     for(int i = 1; i < 4; i++)
     {
+        // Pass needed variables to evaluate the month in question ( 1 , 2 , 3.. )
         startingBalance = EvalQuarter(startingBalance, endBal, totalDeposits, totalWithdrawals, totalInterest, rate, i);
     }
 
-    Statement(bal, totalDeposits, totalWithdrawals, totalInterest, endBal);
-    printStatement(bal, totalDeposits, totalWithdrawals, totalInterest, endBal);
+    Statement(bal, totalDeposits, totalWithdrawals, totalInterest, endBal); // Print Quarterly Statement to console
+    printStatement(bal, totalDeposits, totalWithdrawals, totalInterest, endBal); // Output Quarterly Statement to file
 }
 
 double ValidateResponse()
 {
-    double userInput;
-    bool  isUserInputInvalid;
+    double userInput; // var to handle user input
+    bool  isUserInputInvalid; // boolean var to use in doWhile loop
 
     do
     {
-        isUserInputInvalid = false;
+        isUserInputInvalid = false; 
 
         cin >> userInput;
 
@@ -57,11 +62,12 @@ double ValidateResponse()
     }
     while(isUserInputInvalid);
 
-    return userInput;
+    return userInput; // return clean value
 }
 
-double EvalQuarter(double bal, double &endBal, double &totalDeposits, double &totalWithdrawals, double &totalInterest, double rate, int month)
+double EvalQuarter(double bal, double &endBal, double &totalDeposits, double &totalWithdrawals, double &totalInterest, double rate, int month) // passing multiple vars by reference to call them later in code
 {
+    // variables declared to use for handling withdrawal and deposit amounts, as well as boolean var to handle doWhile loop
     double deposit, withdrawal;
     bool isUserInputInvalid;
 
@@ -71,7 +77,7 @@ double EvalQuarter(double bal, double &endBal, double &totalDeposits, double &to
     deposit = ValidateResponse();
 
     endBal += deposit;
-    totalDeposits += deposit;
+    totalDeposits += deposit; // add deposits to the ending balance, 
 
     do
     {
@@ -80,19 +86,20 @@ double EvalQuarter(double bal, double &endBal, double &totalDeposits, double &to
         cout << "Total withdrawals for this month: $";
         withdrawal = ValidateResponse();
 
-        if(withdrawal > endBal)
+        if(withdrawal > endBal) // check for invalid withdrawal amount
         {
             cout << "You have withdrawn too much money. Please try again." << endl;
             isUserInputInvalid = true;
         }
-        else{
+        else
+        {
             endBal -= withdrawal;
             totalWithdrawals += withdrawal;
         }
 
     }while(isUserInputInvalid);
 
-    double runningInterest = rate * ((bal + endBal) / 2);
+    double runningInterest = rate * ((bal + endBal) / 2); // calculate interest rate for month
     totalInterest += runningInterest;
 
     endBal += runningInterest;
@@ -100,7 +107,7 @@ double EvalQuarter(double bal, double &endBal, double &totalDeposits, double &to
     cout << "Interest Recieved this month: $" << fixed << setprecision(2) << runningInterest << endl;
     cout << "Ending monthly balance: $" << endBal << endl;
 
-    return endBal;
+    return endBal; // return end monthly balance
 }
 
 void Statement(double bal, double totalDeposits, double totalWithdrawals, double totalInterest, double endBal)
