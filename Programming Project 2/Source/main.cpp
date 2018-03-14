@@ -17,6 +17,7 @@ using std::endl;
 int main() {
 
     InputValidation callValid; // instanciate object of class
+            totalTaxiFees,
 
     // Debug Code : cout << departTime << " " << returnTime << " " << totalDays;
 
