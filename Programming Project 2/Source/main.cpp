@@ -55,7 +55,7 @@ int main() {
     totalMileageCost = trans.vehicle();
 
     cout << "Enter the amount of parking fees: "; //Get parking fees
-    trans.parking(totalDays, CompanyCosts::MAX_PARKING_FEE_PER_DAY, totalParkingFees);
+    totalParkingFees = trans.parking();
 
     cout << "Enter the amount of taxi fees: "; //Get total taxi fees
     trans.taxi(totalDays, CompanyCosts::MAX_TAXI_FEE_PER_DAY, totalTaxiFees);

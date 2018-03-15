@@ -14,7 +14,7 @@ public:
     double airFare();
     double carRental();
     double vehicle();
-    void parking(int, double, double&);
+    double parking();
     void taxi(int, double, double&);
 
 };
