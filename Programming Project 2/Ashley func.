@@ -1,0 +1,25 @@
+#include "../Headers/Transportation.h"
+
+double Transportation::airFare()
+{
+ double air_fare;
+  cout<< "Enter the amount of airfare:  ";
+  cin>> air_fare;
+  return air_fare;
+}
+
+double Transportation::carRental()
+{
+  double car_rental;
+  cout<< "Enter the amount spent for car rental:  ";
+  cin>> car_rental;
+  return car_rental;
+}
+
+double Transportation::vehicle()
+{
+double miles;
+  cout<< "Enter the amount of miles driven by private vehicle: ";
+  cin>> miles;
+  return miles * MAX_COST_PER_MILE_DRIVEN;
+}
