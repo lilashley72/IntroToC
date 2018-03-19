@@ -52,7 +52,7 @@ void Times::times(double& departTime, double& returnTime)
         std::cout << "Enter the return time (using 24-hour HH.MM format): ";\
         returnTime = validate.ValidateResponse(); // Check ValidateDouble.cpp for definition
 
-        areValidTimes = isValidTime(departTime); // Determine if time is valid.
+        areValidTimes = isValidTime(returnTime); // Determine if time is valid.
     }while(!areValidTimes);
 }
 
