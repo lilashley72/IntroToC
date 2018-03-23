@@ -1,9 +1,11 @@
-//
-// Created by Owner on 3/14/2018.
-//
+/*
+ * COP 2334
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
+ * Date Due: 4/23/18
+ */
 
 #include <iostream>
-#include "../Headers/ValidateDouble.h"
+#include "ValidateDouble.h"
 
 double ValidateDouble::ValidateResponse() // Validate a non-negative double from the user.
 {

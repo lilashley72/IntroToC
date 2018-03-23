@@ -1,6 +1,6 @@
 /*
  * COP 2334
- * Created by Kevin Patlis, [name], [name]
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
  * Date Due: 4/23/18
  */
 
@@ -9,7 +9,7 @@
 class CompanyCosts
 {
 public:
-    static double const
+    static double constexpr
             MAX_COST_PER_MILE_DRIVEN = 0.58,
             MAX_PARKING_FEE_PER_DAY = 12.00,
             MAX_TAXI_FEE_PER_DAY = 40.00,

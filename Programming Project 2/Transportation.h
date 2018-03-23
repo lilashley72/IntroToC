@@ -1,6 +1,6 @@
 /*
  * COP 2334
- * Created by Kevin Patlis, [name], [name]
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
  * Date Due: 4/23/18
  */
 
@@ -15,7 +15,7 @@ public:
     double carRental();
     double vehicle();
     double parking();
-    void taxi(int, double, double&);
+    void taxi(int, double&, double&);
 
 };
 

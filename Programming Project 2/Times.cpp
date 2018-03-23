@@ -1,11 +1,11 @@
 /*
  * COP 2334
- * Created by Kevin Patlis, [name], [name]
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
  * Date Due: 4/23/18
  */
 
-#include "../Headers/Times.h"
-#include "../Headers/ValidateDouble.h"
+#include "Times.h"
+#include "ValidateDouble.h"
 
 #include <iostream>
 #include <tgmath.h>
@@ -52,7 +52,7 @@ void Times::times(double& departTime, double& returnTime)
         std::cout << "Enter the return time (using 24-hour HH.MM format): ";\
         returnTime = validate.ValidateResponse(); // Check ValidateDouble.cpp for definition
 
-        areValidTimes = isValidTime(departTime); // Determine if time is valid.
+        areValidTimes = isValidTime(returnTime); // Determine if time is valid.
     }while(!areValidTimes);
 }
 
@@ -60,7 +60,7 @@ bool Times::isValidTime(double inputTime) // Determine whether or not inputted t
 {
     if(inputTime > 24 || std::fmod(inputTime, 1.00) > .59 )
     {
-        std::cout << "Invalid time. Please enter another. " << std::endl;
+        std::cout << "Invalid time. Returning to previous prompt. " << std::endl;
         return false;
     }
     else

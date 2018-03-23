@@ -1,6 +1,6 @@
 /*
  * COP 2334
- * Created by Kevin Patlis, [name], [name]
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
  * Date Due: 4/23/18
  */
 
@@ -13,8 +13,8 @@ class TravelExpenses
 {
 public:
     double registration();
-    void hotel(int, double, double&);
-    void meals(int, double, double, double&);
+    void hotel(double&);
+    void meals(int, double, double, double&, double&);
 };
 
 

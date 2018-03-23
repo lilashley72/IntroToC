@@ -1,18 +1,20 @@
 /*
  * COP 2334
- * Created by Kevin Patlis, [name], [name]
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
  * Date Due: 4/23/18
  */
 
 #include <iostream>
-#include "../Headers/Times.h"
-#include "../Headers/Transportation.h"
-#include "../Headers/CompanyCosts.h"
-#include "../Headers/TravelExpenses.h"
+
+#include "Times.h"
+#include "Transportation.h"
+#include "TravelExpenses.h"
+#include "OutputToFile.h"
 
 using std::cout;
 using std::cin;
 using std::endl;
+using std::string;
 
 int main() {
 
@@ -20,6 +22,8 @@ int main() {
     Times time;
     Transportation trans;
     TravelExpenses travel;
+    OutputToFile output;
+
 
     // Declare all needed variables
     std::string employeeName;
@@ -33,17 +37,17 @@ int main() {
             totalTaxiFees,
             totalRegistrationCost,
             totalHotelCost,
+            totalAllowedMealCost,
+            totalAllowedTaxiCost,
             totalMealCost;
 
     cout << "Employee name: "; //Get employee name
-    cin >> employeeName;
+    std::getline(std::cin, employeeName);
 
     cout << "How many days were spent on the trip? "; //Get days spent on trip. Called from the Times.cpp class.
     totalDays = time.daysSpent();
 
     time.times(departTime, returnTime); //Get departure and return times.
-
-    // AS OF 3/14/18 NO FUNCTIONS HAVE BEEN DEFINED PAST THIS POINT
 
     cout << "Enter the amount of airfare: "; //Get total airfare costs
     totalAirfareCost = trans.airFare();
@@ -58,15 +62,20 @@ int main() {
     totalParkingFees = trans.parking();
 
     cout << "Enter the amount of taxi fees: "; //Get total taxi fees
-    trans.taxi(totalDays, CompanyCosts::MAX_TAXI_FEE_PER_DAY, totalTaxiFees);
+    trans.taxi(totalDays, totalTaxiFees, totalAllowedTaxiCost);
 
     cout << "Enter the amount of conference registration: "; //Get registration costs
     totalRegistrationCost = travel.registration();
 
-    travel.hotel(totalDays, CompanyCosts::MAX_HOTEL_COST_PER_NIGHT, totalHotelCost); //Get total meal costs
-    travel.meals(totalDays, departTime, returnTime, totalMealCost);
+    cout << "Enter the nightly hotel rate: ";
+    travel.hotel(totalHotelCost);
 
-    // Debug Code : cout << departTime << " " << returnTime << " " << totalDays;
+    totalHotelCost = totalHotelCost * (totalDays - 1);
+
+    //Get total meal costs
+    travel.meals(totalDays, departTime, returnTime, totalAllowedMealCost, totalMealCost);
+
+    output.Output(employeeName, totalDays, departTime, returnTime, totalAirfareCost, totalRentalCost, totalMileageCost, totalParkingFees, totalTaxiFees, totalRegistrationCost, totalHotelCost, totalMealCost, totalAllowedMealCost, totalAllowedTaxiCost);
 
     return 0;
 }

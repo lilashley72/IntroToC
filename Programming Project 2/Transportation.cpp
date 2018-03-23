@@ -1,20 +1,26 @@
+/*
+ * COP 2334
+ * Created by Kevin Patlis, Abraham Harfouche, Ashley Thompson
+ * Date Due: 4/23/18
+ */
+
 #include <iostream>
 
-#include "../Headers/Transportation.h"
-#include "../Headers/ValidateDouble.h"
-#include "../Headers/CompanyCosts.h"
+#include "Transportation.h"
+#include "ValidateDouble.h"
+#include "CompanyCosts.h"
 using std::cout;
 using std::cin;
 using std::endl;
 
 ValidateDouble validate;
 
+
 double Transportation::airFare()
 {
     double air_fare;
 
-    cout<< "Enter the amount of airfare:  ";
-    air_fare= validate.ValidateResponse();
+    air_fare = validate.ValidateResponse();
 
     return air_fare;
 }
@@ -23,7 +29,6 @@ double Transportation::carRental()
 {
     double car_rental;
 
-    cout<< "Enter the amount spent for car rental:  ";
     car_rental = validate.ValidateResponse();
 
     return car_rental;
@@ -33,7 +38,6 @@ double Transportation::vehicle()
 {
     double miles;
 
-    cout<< "Enter the amount of miles driven by private vehicle: ";
     miles = validate.ValidateResponse();
 
     return miles * CompanyCosts::MAX_COST_PER_MILE_DRIVEN;
@@ -43,15 +47,23 @@ double Transportation::parking()
 {
     double totalParkingFees;
 
-    cout<< "Enter parking fee:";
     totalParkingFees = validate.ValidateResponse();
 
     return totalParkingFees;
 }
 
-void Transportation::taxi(int, double, double&)
+void Transportation::taxi(int days, double& totalTaxiFees, double& totalAllowedTaxiFees)
 {
+    totalTaxiFees = validate.ValidateResponse();
 
+    if(totalTaxiFees == 0)
+    {
+        totalAllowedTaxiFees = 0;
+    }
+    else
+    {
+        totalAllowedTaxiFees = days * CompanyCosts::MAX_TAXI_FEE_PER_DAY;
+    }
 }
 
  
