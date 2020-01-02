@@ -1,4 +1,0 @@
-Group:
-  Kevin Patlis
-  [name]
-  [name]

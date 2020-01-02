@@ -1,0 +1,84 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Programming/C++/Programming Project 2/CompanyCosts.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/OutputToFile.cpp
+iostream
+-
+iomanip
+-
+string
+-
+fstream
+-
+OutputToFile.h
+/cygdrive/d/Programming/C++/Programming Project 2/OutputToFile.h
+CompanyCosts.h
+/cygdrive/d/Programming/C++/Programming Project 2/CompanyCosts.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/OutputToFile.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/Times.cpp
+Times.h
+/cygdrive/d/Programming/C++/Programming Project 2/Times.h
+ValidateDouble.h
+/cygdrive/d/Programming/C++/Programming Project 2/ValidateDouble.h
+iostream
+-
+tgmath.h
+-
+
+/cygdrive/d/Programming/C++/Programming Project 2/Times.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/Transportation.cpp
+iostream
+-
+Transportation.h
+/cygdrive/d/Programming/C++/Programming Project 2/Transportation.h
+ValidateDouble.h
+/cygdrive/d/Programming/C++/Programming Project 2/ValidateDouble.h
+CompanyCosts.h
+/cygdrive/d/Programming/C++/Programming Project 2/CompanyCosts.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/Transportation.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/TravelExpenses.cpp
+TravelExpenses.h
+/cygdrive/d/Programming/C++/Programming Project 2/TravelExpenses.h
+ValidateDouble.h
+/cygdrive/d/Programming/C++/Programming Project 2/ValidateDouble.h
+CompanyCosts.h
+/cygdrive/d/Programming/C++/Programming Project 2/CompanyCosts.h
+iostream
+-
+
+/cygdrive/d/Programming/C++/Programming Project 2/TravelExpenses.h
+string
+-
+
+/cygdrive/d/Programming/C++/Programming Project 2/ValidateDouble.cpp
+iostream
+-
+ValidateDouble.h
+/cygdrive/d/Programming/C++/Programming Project 2/ValidateDouble.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/ValidateDouble.h
+
+/cygdrive/d/Programming/C++/Programming Project 2/main.cpp
+iostream
+-
+Times.h
+/cygdrive/d/Programming/C++/Programming Project 2/Times.h
+Transportation.h
+/cygdrive/d/Programming/C++/Programming Project 2/Transportation.h
+TravelExpenses.h
+/cygdrive/d/Programming/C++/Programming Project 2/TravelExpenses.h
+OutputToFile.h
+/cygdrive/d/Programming/C++/Programming Project 2/OutputToFile.h
+
